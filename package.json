@@ -4,22 +4,20 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "NODE_OPTIONS=--max-old-space-size=4096 vite",
-    "serve": "pnpm dev",
-    "build": "rimraf dist && NODE_OPTIONS=--max-old-space-size=8192 vite build && generate-version-file",
-    "build:staging": "rimraf dist && vite build --mode staging",
-    "report": "rimraf dist && vite build",
+    "dev": "set NODE_OPTIONS=--max-old-space-size=4096 & vite",
+    "serve": "npm dev",
+    "build": "rimraf dist & NODE_OPTIONS=--max-old-space-size=8192 & vite build & generate-version-file",
+    "build:staging": "rimraf dist & vite build --mode staging",
+    "report": "rimraf dist & vite build",
     "preview": "vite preview",
-    "preview:build": "pnpm build && vite preview",
+    "preview:build": "npm build & vite preview",
     "typecheck": "vue-tsc --noEmit --skipLibCheck",
     "svgo": "svgo -f . -r",
-    "clean:cache": "rimraf .eslintcache && rimraf pnpm-lock.yaml && rimraf node_modules && pnpm store prune && pnpm install",
+    "clean:cache": "rimraf .eslintcache & rimraf npm-lock.yaml & rimraf node_modules & npm store prune & npm install",
     "lint:eslint": "eslint --cache --max-warnings 0 src mock build --fix",
     "lint:prettier": "prettier --write  \"src/**/*.{js,ts,json,tsx,css,scss,vue,html,md}\"",
     "lint:stylelint": "stylelint --cache --fix \"**/*.{html,vue,css,scss}\" --cache-location node_modules/.cache/stylelint/",
-    "lint": "pnpm lint:eslint && pnpm lint:prettier && pnpm lint:stylelint",
-    "prepare": "husky",
-    "preinstall": "npx only-allow pnpm"
+    "lint": "npm lint:eslint & npm lint:prettier & npm lint:stylelint"
   },
   "keywords": [
     "vue-pure-admin",
@@ -175,32 +173,6 @@
     "vue-tsc": "^3.2.6"
   },
   "engines": {
-    "node": "^20.19.0 || >=22.13.0",
-    "pnpm": ">=9"
-  },
-  "pnpm": {
-    "allowedDeprecatedVersions": {
-      "are-we-there-yet": "*",
-      "sourcemap-codec": "*",
-      "lodash.isequal": "*",
-      "domexception": "*",
-      "w3c-hr-time": "*",
-      "inflight": "*",
-      "npmlog": "*",
-      "rimraf": "*",
-      "stable": "*",
-      "gauge": "*",
-      "abab": "*",
-      "glob": "*"
-    },
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "core-js",
-      "es5-ext",
-      "esbuild",
-      "typeit",
-      "vue-demi"
-    ],
-    "ignoredBuiltDependencies": ["@tailwindcss/oxide", "vue3-danmaku"]
+    "node": "^20.19.0 || >=22.13.0"
   }
 }
